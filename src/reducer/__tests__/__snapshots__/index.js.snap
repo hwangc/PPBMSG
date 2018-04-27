@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PPB Reducer Success to fetch and dispatch ADD_NEW_ORDER 1`] = `
+Object {
+  "error": "",
+  "id": undefined,
+  "images": undefined,
+  "orderAddress": "undefined undefined",
+  "prdNum": 0,
+}
+`;
