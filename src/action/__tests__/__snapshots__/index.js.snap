@@ -4,33 +4,40 @@ exports[`PPBMSG Action Creators =>  ASYNC  fetchOrder(CHUU) => should return suc
 Array [
   Object {
     "payload": Object {
-      "error": "",
-      "id": "",
-      "images": Array [],
-      "orderAddress": "",
-      "prdNum": "",
+      "error": null,
+      "id": null,
+      "itemsInfo": Array [],
+      "orderAddress": null,
+      "prdNum": null,
     },
     "type": "START_FETCH_ORDER",
   },
   Object {
     "payload": Object {
-      "error": [TypeError: (0 , _common.getOrderFetcjUrl) is not a function],
-      "id": "",
-      "images": Array [],
-      "orderAddress": "",
-      "prdNum": "",
+      "error": "",
+      "id": "o_1",
+      "itemsInfo": Array [
+        Object {
+          "image": undefined,
+          "name": undefined,
+          "price": undefined,
+        },
+      ],
+      "orderAddress": "hello address",
+      "prdNum": 3,
     },
-    "type": "FAIL_FETCH_ORDER",
+    "type": "SUCCESS_FETCH_ORDER",
   },
   Object {
     "payload": Object {
       "location": Object {
-        "lat": 0,
-        "lng": 0,
+        "latitude": 37.551954,
+        "latitudeDelta": 0.0922,
+        "longitude": 127.058964,
         "longitudeDelta": 0.0421,
       },
     },
-    "type": "FAIL_FETCH_LOC",
+    "type": "SUCCESS_FETCH_LOC",
   },
 ]
 `;
@@ -39,33 +46,40 @@ exports[`PPBMSG Action Creators =>  ASYNC  fetchOrder(NULL) => should return fai
 Array [
   Object {
     "payload": Object {
-      "error": "",
-      "id": "",
-      "images": Array [],
-      "orderAddress": "",
-      "prdNum": "",
+      "error": null,
+      "id": null,
+      "itemsInfo": Array [],
+      "orderAddress": null,
+      "prdNum": null,
     },
     "type": "START_FETCH_ORDER",
   },
   Object {
     "payload": Object {
-      "error": [TypeError: (0 , _common.getOrderFetcjUrl) is not a function],
-      "id": "",
-      "images": Array [],
-      "orderAddress": "",
-      "prdNum": "",
+      "error": "",
+      "id": "o_1",
+      "itemsInfo": Array [
+        Object {
+          "image": undefined,
+          "name": undefined,
+          "price": undefined,
+        },
+      ],
+      "orderAddress": "hello address",
+      "prdNum": 3,
     },
-    "type": "FAIL_FETCH_ORDER",
+    "type": "SUCCESS_FETCH_ORDER",
   },
   Object {
     "payload": Object {
       "location": Object {
-        "lat": 0,
-        "lng": 0,
+        "latitude": 37.551954,
+        "latitudeDelta": 0.0922,
+        "longitude": 127.058964,
         "longitudeDelta": 0.0421,
       },
     },
-    "type": "FAIL_FETCH_LOC",
+    "type": "SUCCESS_FETCH_LOC",
   },
 ]
 `;
@@ -75,7 +89,7 @@ Object {
   "payload": Object {
     "error": "",
     "id": undefined,
-    "images": undefined,
+    "itemsInfo": undefined,
     "orderAddress": "undefined undefined",
     "prdNum": 0,
   },

@@ -12,9 +12,11 @@ export default class Map extends React.Component {
     console.log('map props', this.props.location);
     return (
       <View style={styles.map}>
-        <MapView style={styles.map} region={this.props.location}>
-          <MapView.Marker coordinate={this.props.location} />
-        </MapView>
+        {this.props.location && (
+          <MapView style={styles.map} region={this.props.location}>
+            <MapView.Marker coordinate={this.props.location} />
+          </MapView>
+        )}
       </View>
     );
   }
