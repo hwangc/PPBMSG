@@ -36,18 +36,16 @@ export const initialStateMap = {
   longitudeDelta: 0.0421
 };
 
-export const ORDER = [
-  {
-    order_no: 'o_1',
-    product: [
-      { product_no: 'p_1' },
-      { product_no: 'p_2' },
-      { product_no: 'p_3' }
-    ],
-    ship_address1: 'hello',
-    ship_address2: 'address'
-  }
-];
+export const ORDER = {
+  order_no: 'o_1',
+  product: [
+    { product_no: 'p_1' },
+    { product_no: 'p_2' },
+    { product_no: 'p_3' }
+  ],
+  ship_address1: 'hello',
+  ship_address2: 'address'
+};
 const GOOGLE = 'google';
 const DAUM = 'daum';
 const FREEGEOIP = 'freegeoip';

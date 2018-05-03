@@ -1,7 +1,7 @@
 import mockStore from 'redux-mock-store';
 import * as actions from '../../action';
-import { ppbMsg, initialState } from '../index';
-import { ORDER } from '../../constant';
+import { ppbMsgOrder } from '../index';
+import { ORDER, initialStateOrder } from '../../constant';
 
 const store = mockStore();
 
@@ -10,9 +10,9 @@ beforeEach(() => {
 });
 
 describe('PPB Reducer', () => {
-  test('Success to fetch and dispatch ADD_NEW_ORDER', () => {
+  test('Success to fetch and dispatch START_FETCH_ORDER', () => {
     expect(
-      ppbMsg(initialState, actions.successFetchAction(ORDER))
+      ppbMsgOrder(initialStateOrder, actions.successFetchOrderAction(ORDER))
     ).toMatchSnapshot();
   });
 });

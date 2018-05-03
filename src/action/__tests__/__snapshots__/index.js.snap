@@ -14,30 +14,22 @@ Array [
   },
   Object {
     "payload": Object {
-      "error": "",
-      "id": "o_1",
-      "itemsInfo": Array [
-        Object {
-          "image": undefined,
-          "name": undefined,
-          "price": undefined,
-        },
-      ],
-      "orderAddress": "hello address",
-      "prdNum": 3,
+      "error": null,
+      "id": null,
+      "itemsInfo": Array [],
+      "orderAddress": null,
+      "prdNum": null,
     },
-    "type": "SUCCESS_FETCH_ORDER",
+    "type": "FAIL_FETCH_ORDER",
   },
   Object {
     "payload": Object {
-      "location": Object {
-        "latitude": 37.551954,
-        "latitudeDelta": 0.0922,
-        "longitude": 127.058964,
-        "longitudeDelta": 0.0421,
-      },
+      "latitude": 0,
+      "latitudeDelta": 0.0922,
+      "longitude": 0,
+      "longitudeDelta": 0.0421,
     },
-    "type": "SUCCESS_FETCH_LOC",
+    "type": "FAIL_FETCH_LOC",
   },
 ]
 `;
@@ -56,30 +48,22 @@ Array [
   },
   Object {
     "payload": Object {
-      "error": "",
-      "id": "o_1",
-      "itemsInfo": Array [
-        Object {
-          "image": undefined,
-          "name": undefined,
-          "price": undefined,
-        },
-      ],
-      "orderAddress": "hello address",
-      "prdNum": 3,
+      "error": null,
+      "id": null,
+      "itemsInfo": Array [],
+      "orderAddress": null,
+      "prdNum": null,
     },
-    "type": "SUCCESS_FETCH_ORDER",
+    "type": "FAIL_FETCH_ORDER",
   },
   Object {
     "payload": Object {
-      "location": Object {
-        "latitude": 37.551954,
-        "latitudeDelta": 0.0922,
-        "longitude": 127.058964,
-        "longitudeDelta": 0.0421,
-      },
+      "latitude": 0,
+      "latitudeDelta": 0.0922,
+      "longitude": 0,
+      "longitudeDelta": 0.0421,
     },
-    "type": "SUCCESS_FETCH_LOC",
+    "type": "FAIL_FETCH_LOC",
   },
 ]
 `;
@@ -88,10 +72,10 @@ exports[`PPBMSG Action Creators =>  SYNC  successFetchOrderAction => should crea
 Object {
   "payload": Object {
     "error": "",
-    "id": undefined,
+    "id": "o_1",
     "itemsInfo": undefined,
-    "orderAddress": "undefined undefined",
-    "prdNum": 0,
+    "orderAddress": "hello address",
+    "prdNum": 3,
   },
   "type": "SUCCESS_FETCH_ORDER",
 }
