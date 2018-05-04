@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
 import { types, initialStateOrder, initialStateMap } from '../constant';
+import navReducer from './navigation';
 
 export const ppbMsgOrder = (state = initialStateOrder, action) => {
   switch (action.type) {
@@ -34,5 +35,9 @@ export const ppbMsgMap = (state = initialStateMap, action) => {
       return state;
   }
 };
-const rootReducer = combineReducers({ ppbMsgOrder, ppbMsgMap });
+const rootReducer = combineReducers({
+  ppbMsgOrder,
+  ppbMsgMap,
+  nav: navReducer
+});
 export default rootReducer;

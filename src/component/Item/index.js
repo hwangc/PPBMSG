@@ -11,7 +11,7 @@ export default class Item extends React.Component {
   }
 
   componentDidMount() {
-    this.props.newOrder();
+    // this.props.newOrder();
   }
 
   slideList(itemsInfo) {

@@ -1,6 +1,5 @@
 import { connect } from 'react-redux';
 import Item from '../Item';
-import { fetchOrder } from '../../action';
 
 const mapStateToProps = (state, ownProps) => {
   return {
@@ -8,14 +7,14 @@ const mapStateToProps = (state, ownProps) => {
   };
 };
 
-const mapDispatchToProps = (dispatch, ownProps) => {
-  return {
-    newOrder: () => {
-      dispatch(fetchOrder(ownProps.mall));
-    }
-  };
-};
+// const mapDispatchToProps = (dispatch, ownProps) => {
+//   return {
+//     newOrder: () => {
+//       dispatch(fetchOrder(ownProps.mall));
+//     }
+//   };
+// };
 
-const ItemC = connect(mapStateToProps, mapDispatchToProps)(Item);
+const ItemC = connect(mapStateToProps)(Item);
 
 export default ItemC;
