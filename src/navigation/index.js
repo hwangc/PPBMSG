@@ -1,5 +1,9 @@
 import React from 'react';
-import { addNavigationHelpers, TabNavigator } from 'react-navigation';
+import {
+  addNavigationHelpers,
+  TabNavigator,
+  TabBarBottom
+} from 'react-navigation';
 import { connect } from 'react-redux';
 import ChuuMain from '../screens/Chuu';
 import MossbeanMain from '../screens/Mossbean';
@@ -8,6 +12,8 @@ import {
   createReactNavigationReduxMiddleware,
   createReduxBoundAddListener
 } from 'react-navigation-redux-helpers';
+import { fetchOrder } from '../action';
+import { MALL } from '../constant';
 
 export const AppNavigator = TabNavigator(
   {
@@ -16,7 +22,10 @@ export const AppNavigator = TabNavigator(
     Icecream12: { screen: Icecream12Main }
   },
   {
-    animationEnabled: true
+    tabBarComponent: TabBarBottom,
+    navigationOptions: ({ navigation }) => ({
+      initialRouteName: 'Chuu'
+    })
   }
 );
 
@@ -28,14 +37,24 @@ export const navMiddleware = createReactNavigationReduxMiddleware(
 const addListener = createReduxBoundAddListener('root');
 
 class AppWithNavigationState extends React.Component {
+  static getDerivedStateFromProps(nextProps, prevState) {
+    let mall;
+    switch (nextProps.nav.index) {
+      case 0:
+        mall = MALL.CHUU;
+        break;
+      case 1:
+        mall = MALL.MOSSBEAN;
+        break;
+      case 2:
+        mall = MALL.ICECREAM12;
+        break;
+    }
+    nextProps.dispatch(fetchOrder(mall));
+  }
+
   render() {
     const { dispatch, nav } = this.props;
-    console.log(
-      '\n===>>> START <<<===\n',
-      'AppWithNavigationState this.props: ',
-      this.props
-    );
-    console.log('\n===>>> END <<<===');
     return (
       <AppNavigator
         navigation={addNavigationHelpers({ dispatch, state: nav, addListener })}

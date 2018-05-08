@@ -7,14 +7,6 @@ const mapStateToProps = (state, ownProps) => {
   };
 };
 
-// const mapDispatchToProps = (dispatch, ownProps) => {
-//   return {
-//     newOrder: () => {
-//       dispatch(fetchOrder(ownProps.mall));
-//     }
-//   };
-// };
-
 const ItemC = connect(mapStateToProps)(Item);
 
 export default ItemC;
