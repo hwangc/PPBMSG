@@ -1,10 +1,12 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { StyleSheet, View } from 'react-native';
 import ItemC from '../../component/ItemContainer';
 import MapC from '../../component/MapContainer';
 import { MALL } from '../../constant';
+import { fetchOrder } from '../../action';
 
-export default class MossbeanMain extends React.Component {
+class MossbeanMain extends React.Component {
   static navigationOptions = ({ navigation, navigationOptions }) => {
     return {
       title: 'Mossbean',
@@ -15,7 +17,7 @@ export default class MossbeanMain extends React.Component {
   };
 
   componentDidMount() {
-    console.log('screen this props ', this.props);
+    this.props.newOrder();
   }
 
   render() {
@@ -42,3 +44,9 @@ const styles = StyleSheet.create({
   },
   mapArea: { flex: 1, alignItems: 'center', justifyContent: 'center' }
 });
+
+const mapDispatchToProps = dispatch => ({
+  newOrder: () => dispatch(fetchOrder(MALL.MOSSBEAN))
+});
+
+export default connect(null, mapDispatchToProps)(MossbeanMain);

@@ -1,10 +1,12 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { StyleSheet, View } from 'react-native';
 import ItemC from '../../component/ItemContainer';
 import MapC from '../../component/MapContainer';
 import { MALL } from '../../constant';
+import { fetchOrder } from '../../action';
 
-export default class Icecream12Main extends React.Component {
+class Icecream12Main extends React.Component {
   static navigationOptions = ({ navigation, navigationOptions }) => {
     return {
       title: 'Icecream12',
@@ -13,6 +15,10 @@ export default class Icecream12Main extends React.Component {
       }
     };
   };
+
+  componentDidMount() {
+    this.props.newOrder();
+  }
 
   render() {
     return (
@@ -38,3 +44,9 @@ const styles = StyleSheet.create({
   },
   mapArea: { flex: 1, alignItems: 'center', justifyContent: 'center' }
 });
+
+const mapDispatchToProps = dispatch => ({
+  newOrder: () => dispatch(fetchOrder(MALL.ICECREAM12))
+});
+
+export default connect(null, mapDispatchToProps)(Icecream12Main);
