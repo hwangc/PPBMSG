@@ -1,19 +1,11 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
+import { createStackNavigator } from 'react-navigation';
 import ItemC from '../../component/ItemContainer';
 import MapC from '../../component/MapContainer';
 import { MALL } from '../../constant';
 
-export default class ChuuMain extends React.Component {
-  static navigationOptions = ({ navigation, navigationOptions }) => {
-    return {
-      title: 'Chuu',
-      headerStyle: {
-        backgroundColor: '#ffc9e4'
-      }
-    };
-  };
-
+export class ChuuMain extends React.Component {
   render() {
     return (
       <View style={styles.container}>
@@ -38,3 +30,21 @@ const styles = StyleSheet.create({
   },
   mapArea: { flex: 1, alignItems: 'center', justifyContent: 'center' }
 });
+
+const ChuuMainStack = createStackNavigator(
+  {
+    Chuu: ChuuMain
+  },
+  {
+    navigationOptions: ({ navigation, navigationOptions }) => {
+      return {
+        title: 'Chuu',
+        headerStyle: {
+          backgroundColor: '#ffc9e4'
+        }
+      };
+    }
+  }
+);
+
+export default ChuuMainStack;

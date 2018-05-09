@@ -1,9 +1,7 @@
 import React from 'react';
-import {
-  addNavigationHelpers,
-  TabNavigator,
-  TabBarBottom
-} from 'react-navigation';
+import { Text } from 'react-native';
+import { createBottomTabNavigator } from 'react-navigation';
+import Ionicons from '@expo/vector-icons';
 import { connect } from 'react-redux';
 import ChuuMain from '../screens/Chuu';
 import MossbeanMain from '../screens/Mossbean';
@@ -15,17 +13,17 @@ import {
 import { fetchOrder } from '../action';
 import { MALL } from '../constant';
 
-export const AppNavigator = TabNavigator(
+export const AppNavigator = createBottomTabNavigator(
   {
     Chuu: { screen: ChuuMain },
     Mossbean: { screen: MossbeanMain },
     Icecream12: { screen: Icecream12Main }
   },
   {
-    tabBarComponent: TabBarBottom,
-    navigationOptions: ({ navigation }) => ({
-      initialRouteName: 'Chuu'
-    })
+    tabBarOptions: {
+      activeTintColor: 'tomato',
+      inactiveTintColor: 'gray'
+    }
   }
 );
 
@@ -55,11 +53,7 @@ class AppWithNavigationState extends React.Component {
 
   render() {
     const { dispatch, nav } = this.props;
-    return (
-      <AppNavigator
-        navigation={addNavigationHelpers({ dispatch, state: nav, addListener })}
-      />
-    );
+    return <AppNavigator navigation={{ dispatch, state: nav, addListener }} />;
   }
 }
 
