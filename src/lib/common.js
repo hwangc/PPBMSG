@@ -4,7 +4,7 @@ import auth from '../../apiConfig.json';
 
 export const setDateTime = DT => {
   const now = DT || new Date();
-  const timeFormat = 'YYYY-MM-DD HH:mm:00';
+  const timeFormat = 'YYYY-MM-DD HH:mm:ss';
   const time = DateTime.format(DateTime.addDays(now, -2), timeFormat);
 
   return time;
