@@ -1,7 +1,5 @@
 import React from 'react';
-import { Text } from 'react-native';
 import { createBottomTabNavigator } from 'react-navigation';
-import Ionicons from '@expo/vector-icons';
 import { connect } from 'react-redux';
 import ChuuMain from '../screens/Chuu';
 import MossbeanMain from '../screens/Mossbean';
