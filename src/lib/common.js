@@ -4,35 +4,43 @@ import auth from '../../apiConfig.json';
 
 export const setDateTime = DT => {
   const now = DT || new Date();
-  const timeFormat = 'YYYY-MM-DD HH:mm:00';
-  const time = DateTime.format(DateTime.addMinutes(now, -10), timeFormat);
+  const timeFormat = 'YYYY-MM-DD HH:mm:ss';
+  const time = DateTime.format(DateTime.addDays(now, -2), timeFormat);
 
   return time;
 };
 
 export const getOrderFetchUrl = mall => {
   let url = 'https://datahub.cafe24.com/openapi/shop/order/v1/search';
-
+  let query = '';
+  let AC = '';
+  let MI = '';
+  let ST = 'ppbstudios';
+  let SN = 1;
+  let DT = 'json';
+  let DS = 'order';
+  let LT = 1;
+  let SD = setDateTime();
   switch (mall) {
     case CHUU:
-      const AC = auth.mallAuth.chuu;
-      const MI = 'chuukr';
-      const ST = 'ppbstudios';
-      const SN = 1;
-      const DT = 'json';
-      const DS = 'order';
-      const LT = 1;
-      const SD = setDateTime();
-      let query = `auth_code=${AC}&service_type=${ST}&mall_id=${MI}&data_type=${DT}&start_datetime=${SD}&datetime_select=${DS}&limit=${LT}&shop_no=${SN}`;
+      AC = auth.mallAuth.chuu;
+      MI = 'chuukr';
+      query = `auth_code=${AC}&service_type=${ST}&mall_id=${MI}&data_type=${DT}&start_datetime=${SD}&datetime_select=${DS}&limit=${LT}&shop_no=${SN}`;
       url += `?${query}`;
       break;
 
     case MOSSBEAN:
-      url = '';
+      AC = auth.mallAuth.mossbean;
+      MI = 'mosbean';
+      query = `auth_code=${AC}&service_type=${ST}&mall_id=${MI}&data_type=${DT}&start_datetime=${SD}&datetime_select=${DS}&limit=${LT}&shop_no=${SN}`;
+      url += `?${query}`;
       break;
 
     case ICECREAM12:
-      url = '';
+      AC = auth.mallAuth.icecream12;
+      MI = 'dusvlf91';
+      query = `auth_code=${AC}&service_type=${ST}&mall_id=${MI}&data_type=${DT}&start_datetime=${SD}&datetime_select=${DS}&limit=${LT}&shop_no=${SN}`;
+      url += `?${query}`;
       break;
 
     default:
@@ -45,20 +53,33 @@ export const getOrderFetchUrl = mall => {
 export const getItemFetchUrl = (itemIds, mall) => {
   let url = 'https://datahub.cafe24.com/openapi/shop/product/v1/search';
 
+  let AC = '';
+  let MI = '';
+  const ST = 'ppbstudios';
+  const SN = 1;
+  const DT = 'json';
+  let query = '';
+
   switch (mall) {
     case CHUU:
-      const AC = auth.mallAuth.chuu;
-      const MI = 'chuukr';
-      const ST = 'ppbstudios';
-      const SN = 1;
-      const DT = 'json';
-      const query = `auth_code=${AC}&service_type=${ST}&mall_id=${MI}&data_type=${DT}&shop_no=${SN}&limit=100&product_no=${itemIds}`;
+      AC = auth.mallAuth.chuu;
+      MI = 'chuukr';
+      query = `auth_code=${AC}&service_type=${ST}&mall_id=${MI}&data_type=${DT}&shop_no=${SN}&limit=100&product_no=${itemIds}`;
       url += `?${query}`;
       break;
 
     case MOSSBEAN:
+      AC = auth.mallAuth.mossbean;
+      MI = 'mosbean';
+      query = `auth_code=${AC}&service_type=${ST}&mall_id=${MI}&data_type=${DT}&shop_no=${SN}&limit=100&product_no=${itemIds}`;
+      url += `?${query}`;
       break;
+
     case ICECREAM12:
+      AC = auth.mallAuth.icecream12;
+      MI = 'dusvlf91';
+      query = `auth_code=${AC}&service_type=${ST}&mall_id=${MI}&data_type=${DT}&shop_no=${SN}&limit=100&product_no=${itemIds}`;
+      url += `?${query}`;
       break;
 
     default:

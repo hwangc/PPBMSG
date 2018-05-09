@@ -10,10 +10,6 @@ export default class Item extends React.Component {
     this.state = {};
   }
 
-  componentDidMount() {
-    this.props.newOrder();
-  }
-
   slideList(itemsInfo) {
     return itemsInfo.map((item, index) => (
       <View style={styles.slide} key={index}>
